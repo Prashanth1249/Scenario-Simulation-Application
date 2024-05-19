@@ -3,6 +3,9 @@
 
 This project is a React.js application that allows users to create, display, update, and delete scenarios and vehicles. Users can simulate scenarios with moving vehicles based on specified parameters.
 
+## Project Live here : https://scenariosimulation.netlify.app/
+## Sample Youtube Video : https://youtu.be/gUiUgB_fJPE?si=25h43TCEgCnmqdBg
+
 ## Features
 
 - Create, display, update, and delete scenarios and vehicles

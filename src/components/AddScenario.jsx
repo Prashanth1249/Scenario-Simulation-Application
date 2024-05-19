@@ -101,10 +101,11 @@ const AddScenario = () => {
   };
 
   return (
-    <div>
-      <h2 style={{ color: 'white' }}>{isEditMode ? 'Edit Scenario' : 'Add Scenario'}</h2>
+    <div className='mainContainer'>
+      <h7 style={{ color: 'white' }}>{location.pathname}</h7>
+      <h2 style={{ color: 'white' ,marginTop:"50px"}}>{isEditMode ? 'Edit Scenario' : 'Add Scenario'}</h2>
       <form>
-        <div className='formContainer'>
+        <div className='formContainer' style={{height:"30%"}}>
           <div className='singleElement'>
             <label htmlFor="scenarioName">Scenario Name</label>
             <input
@@ -112,8 +113,11 @@ const AddScenario = () => {
               id="scenarioName"
               value={scenarioName}
               onChange={handleScenarioNameChange}
+              style={{ backgroundColor: '#333333',color:"white",borderRadius:"4px" }}
             />
-            {errors.scenarioName && <div style={{ color: 'red', border: '2px solid red' }}>{errors.scenarioName}</div>}
+            {errors.scenarioName && 
+            <div style={{ backgroundColor: 'rgb(112,36,36)', marginTop:"7px",color:"white",
+            padding:"10px", paddingTop:"2px",paddingBottom:"2px" }}>{errors.scenarioName}</div>}
           </div>
           <div className='singleElement'>
             <label htmlFor="scenarioTime">Scenario Time (seconds)</label>
@@ -122,16 +126,19 @@ const AddScenario = () => {
               id="scenarioTime"
               value={scenarioTime}
               onChange={handleScenarioTimeChange}
+              style={{ backgroundColor: '#333333',color:"white" ,borderRadius:"4px"}}
             />
-            {errors.scenarioTime && <div style={{ color: 'red' }}>{errors.scenarioTime}</div>}
+            {errors.scenarioTime && <div style={{ backgroundColor: 'rgb(112,36,36)', marginTop:"7px",color:"white",
+            padding:"10px", paddingTop:"2px",paddingBottom:"2px" }}>{errors.scenarioTime}</div>}
+
           </div>
         </div>
         <div className='buttonContainer'>
           <button type="button" className='btn btn-success' onClick={handleSaveScenario}>
             {isEditMode ? 'Update' : 'Add'}
           </button>
-          <button type="button" onClick={handleReset}>Reset</button>
-          <button type="button" onClick={handleGoBack}>Go Back</button>
+          <button type="button" onClick={handleReset} style={{backgroundColor:"#E37933"}}>Reset</button>
+          <button type="button" onClick={handleGoBack} style={{backgroundColor:"#4A9ABA"}}>Go Back</button>
         </div>
       </form>
     </div>

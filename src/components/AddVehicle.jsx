@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import './AddScenario.css';
+// import './AddVechicle.css';
+import './AddVehicle.css';
 import axios from 'axios';
 
 const AddVehicle = () => {
@@ -8,7 +9,8 @@ const AddVehicle = () => {
   const scenarioIdFromState = location.state?.scenarioId || '';
   console.log(scenarioIdFromState);
   const navigate = useNavigate();
-
+  const CONTAINER_WIDTH = window.innerWidth-380;
+  const CONTAINER_HEIGHT = window.innerHeight-300;
   const vehicleToEdit = location.state?.vehicle || null;
   const isEdit = location.state?.isEdit || false;
   const scenarioEditIdFromState = vehicleToEdit ? vehicleToEdit.scenarioId : location.state?.scenarioId || '';
@@ -98,14 +100,21 @@ const handleAddVehicle = async () => {
   if (!selectedScenario) {
     newErrors.selectedScenario = 'Scenario is required';
   }
+
   if (!vehicleName.trim()) {
     newErrors.vehicleName = 'Vehicle name is required';
   }
   if (!positionX.toString().trim()) {
     newErrors.positionX = 'Position X is required';
   }
+  if (positionX > CONTAINER_WIDTH || positionX < 0) {
+    newErrors.positionX = 'Position should be between 0 and ' + CONTAINER_WIDTH;
+  }
   if (!positionY.toString().trim()) {
     newErrors.positionY = 'Position Y is required';
+  }
+  if (positionY > CONTAINER_HEIGHT || positionY < 0) { // Added range check for positionY
+    newErrors.positionY = 'Position should be between 0 and ' + CONTAINER_HEIGHT;
   }
   if (!speed.toString().trim()) {
     newErrors.speed = 'Speed is required';
@@ -113,7 +122,7 @@ const handleAddVehicle = async () => {
   if (!direction.trim()) {
     newErrors.direction = 'Direction is required';
   }
-
+ 
   if (Object.keys(newErrors).length === 0) {
     try {
       console.log("Beginning of add function");
@@ -188,8 +197,14 @@ const handleAddVehicle = async () => {
     if (!positionX.toString().trim()) {
       newErrors.positionX = 'Position X is required';
     }
+    if (positionX > CONTAINER_WIDTH || positionX < 0) {
+      newErrors.positionX = 'Position should be between 0 and ' + CONTAINER_WIDTH;
+    }
     if (!positionY.toString().trim()) {
       newErrors.positionY = 'Position Y is required';
+    }
+    if (positionY > CONTAINER_HEIGHT || positionY < 0) { // Added range check for positionY
+      newErrors.positionY = 'Position should be between 0 and ' + CONTAINER_HEIGHT;
     }
     if (!speed.toString().trim()) {
       newErrors.speed = 'Speed is required';
@@ -259,21 +274,42 @@ const handleAddVehicle = async () => {
   };
 
   return (
-    <div>
-      <h2 style={{ color: 'white' }}>{location.pathname}</h2>
-      <h3 style={{ color: 'white' }}>Add Vehicle</h3>
+    <div className='mainContainer'>
+      <h7 style={{ color: 'white' }}>{location.pathname}</h7>
+      <h2 style={{ color: 'white' ,marginTop:"50px"}}>add Vehicle</h2>
       <form>
-        <div className='formContainer'>
+        <div className='formContainer'style={{height:"250px"}}>
           <div className='item'>
             <div className='singleElement'>
               <label htmlFor="selectedScenario">Scenario</label>
-              <select id="selectedScenario" value={selectedScenario} onChange={(e) => setSelectedScenario(e.target.value)} disabled={isEdit}>
-                <option value="">Select Scenario</option>
-                {scenarios.map(scenario => (
-                  <option key={scenario.id} value={scenario.id}>{scenario.name}</option>
-                ))}
-              </select>
-              {errors.selectedScenario && <div style={{ color: 'red', border: '2px solid red' }}>{errors.selectedScenario}</div>}
+            
+                        <select
+            id="selectedScenario"
+            value={selectedScenario}
+            onChange={(e) => setSelectedScenario(e.target.value)}
+            disabled={isEdit}
+            style={{
+              backgroundColor: '#333333',
+              color: 'white',
+            }}
+          >
+            <option value="">Select Scenario</option>
+            {scenarios.map(scenario => (
+              <option
+                key={scenario.id}
+                value={scenario.id}
+                style={{
+                  backgroundColor: '#333333',
+                  color: 'white',
+                }}
+              >
+                {scenario.name}
+              </option>
+            ))}
+          </select>
+
+              {errors.selectedScenario && <div style={{ backgroundColor: 'rgb(112,36,36)', marginTop:"7px",color:"white",
+            padding:"10px", paddingTop:"2px",paddingBottom:"2px" }}>{errors.selectedScenario}</div>}
             </div>
             <div className='singleElement'>
               <label htmlFor="positionX">Position X</label>
@@ -282,8 +318,10 @@ const handleAddVehicle = async () => {
                 id="positionX"
                 value={positionX}
                 onChange={(e) => setPositionX(e.target.value)}
+                 style={{ backgroundColor: '#333333',color:"white",borderRadius:"4px" }}
               />
-              {errors.positionX && <div style={{ color: 'red', border: '2px solid red' }}>{errors.positionX}</div>}
+              {errors.positionX && <div style={{ backgroundColor: 'rgb(112,36,36)', marginTop:"7px",color:"white",
+            padding:"10px", paddingTop:"2px",paddingBottom:"2px" }}>{errors.positionX}</div>}
             </div>
           </div>
 
@@ -295,8 +333,10 @@ const handleAddVehicle = async () => {
                 id="vehicleName"
                 value={vehicleName}
                 onChange={(e) => setVehicleName(e.target.value)}
+                style={{ backgroundColor: '#333333',color:"white",borderRadius:"4px" }}
               />
-              {errors.vehicleName && <div style={{ color: 'red', border: '2px solid red' }}>{errors.vehicleName}</div>}
+              {errors.vehicleName && <div style={{ backgroundColor: 'rgb(112,36,36)', marginTop:"7px",color:"white",
+            padding:"10px", paddingTop:"2px",paddingBottom:"2px" }}>{errors.vehicleName}</div>}
             </div>
             <div className='singleElement'>
               <label htmlFor="positionY">Position Y</label>
@@ -305,8 +345,10 @@ const handleAddVehicle = async () => {
                 id="positionY"
                 value={positionY}
                 onChange={(e) => setPositionY(e.target.value)}
+                style={{ backgroundColor: '#333333',color:"white",borderRadius:"4px" }}
               />
-              {errors.positionY && <div style={{ color: 'red', border: '2px solid red' }}>{errors.positionY}</div>}
+              {errors.positionY && <div style={{ backgroundColor: 'rgb(112,36,36)', marginTop:"7px",color:"white",
+            padding:"10px", paddingTop:"2px",paddingBottom:"2px" }}>{errors.positionY}</div>}
             </div>
           </div>
           <div className='item'>
@@ -317,8 +359,10 @@ const handleAddVehicle = async () => {
                 id="speed"
                 value={speed}
                 onChange={(e) => setSpeed(e.target.value)}
+                style={{ backgroundColor: '#333333',color:"white",borderRadius:"4px" }}
               />
-              {errors.speed && <div style={{ color: 'red', border: '2px solid red' }}>{errors.speed}</div>}
+              {errors.speed && <div style={{ backgroundColor: 'rgb(112,36,36)', marginTop:"7px",color:"white",
+            padding:"10px", paddingTop:"2px",paddingBottom:"2px" }}>{errors.speed}</div>}
             </div>
             <div className='singleElement'>
               <label htmlFor="direction">Direction</label>
@@ -329,7 +373,8 @@ const handleAddVehicle = async () => {
                 <option value="Upwards">Upwards</option>
                 <option value="Downwards">Downwards</option>
               </select>
-              {errors.direction && <div style={{ color: 'red', border: '2px solid red' }}>{errors.direction}</div>}
+              {errors.direction && <div style={{ backgroundColor: 'rgb(112,36,36)', marginTop:"7px",color:"white",
+            padding:"10px", paddingTop:"2px",paddingBottom:"2px" }}>{errors.direction}</div>}
             </div>
           </div>
         </div>
@@ -343,8 +388,8 @@ const handleAddVehicle = async () => {
   {isEdit ? 'Update' : 'Add'}
 </button>
 
-          <button type="button" onClick={handleReset}>Reset</button>
-          <button type="button" onClick={handleGoBack}>Go Back</button>
+          <button type="button" onClick={handleReset} style={{backgroundColor:"#E37933",color:"white"}}>Reset</button>
+          <button type="button" onClick={handleGoBack}style={{backgroundColor:"#4A9ABA",color:"white"}}>Go Back</button>
         </div>
       </form>
     </div>

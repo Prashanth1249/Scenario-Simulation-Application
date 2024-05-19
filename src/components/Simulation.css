@@ -1,22 +1,22 @@
+
 select#direction {
-    width: 200px; /* Optional width */
+    width: 200px; 
     border: 1px solid black; /* Black border initially and on focus */
     background-color: #333333; /* Initial dark gray background */
     color: white; /* White text color */
     padding: 4px 10px; /* Padding for 4px horizontal spacing and some vertical space */
     border-radius: 5px; /* Optional rounded corners */
-    font-size: 14px; /* Optional font size */
-    font-size: 12px;
+    font-size: 14px;
   }
   
-  /* Style the options (including the selected one) */
+ 
   select#direction option {
-    background-color: #333333; /* Maintain dark gray background for options */
+    background-color: #333333; 
     color: white; /* White text color for options */
     padding: 4px 10px; /* Top padding for 3px and horizontal spacing for 4px */
     margin: 1px; /* Add 1px margin around options */
     border: 2px solid green; /* Add 2px green border to options */
-    font-size: 12px;
+    font-size: 14px;
   }
   
   /* Remove hover effect (options always #333333) */
@@ -24,7 +24,7 @@ select#direction {
     background-color: #333333; /* No change on hover */
   }
   
-  /* Selected option (remove blue background, highlight with text color) */
+ 
   select#direction option:checked {
     background-color: #333333; /* Maintain dark gray background */
     color: blue; /* Change text color to blue for selected option */
@@ -33,10 +33,92 @@ select#direction {
   #firstContainer{
     display: flex;
     flex-direction: column;
+    margin-top: 100px;
   }
 
   #firstContainer p{
     padding: 0px;
     margin: 0px;
-    font-size: 10px;
+    font-size: 14px;
+    margin-bottom: 2px;
+    margin-left: 5px;
   }
+
+
+  .tableContainer{
+    position: relative;
+    top: 43px;
+  }
+  .tableHeader{
+    background-color: #333333;
+    border: 1px solid black;
+  }
+  .headerItem {
+  padding: 3px;
+   padding-left: 10px;
+   padding-right: 10px;
+}
+.contentItem{
+    padding: 3px;
+     padding-left: 10px;
+     padding-right: 10px;
+}
+.tableContainer {
+  width: 100%;
+}
+
+.tableHeader th {
+  color: #333333; /* Header text color */
+  background-color: #333333; /* Header background color */
+  text-align: center; /* Center align header text */
+  padding: 10px; /* Add padding for better appearance */
+  color: #AEAEAE;
+}
+
+.tableContainer td {
+  color: #686868; /* Table data text color */
+  background-color: #D9D9D9; /* Table data background color */
+  text-align: center; /* Center align table data text */
+  padding: 10px; /* Add padding for better appearance */
+}
+
+/* Alternate row color */
+.tableContainer tbody tr:nth-child(even) {
+  background-color: #333333;
+}
+
+/* Hover effect */
+.tableContainer tbody tr:hover {
+  background-color: #135113;
+}
+
+/* Simulation.css */
+
+/* Button styles */
+.simulationButtons {
+  margin-top: 55px;
+  text-align: right;
+}
+
+.simulationButtons button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.special{
+  margin-right: 0px;
+}
+
+.simulationButtons button:hover {
+  background-color: #0056b3;
+}
+
+/* Additional content styles */
+.additionalContent {
+  margin-top: 20px;
+  text-align: center;
+}

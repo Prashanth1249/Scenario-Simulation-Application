@@ -1,8 +1,21 @@
 .formContainer{
     color: white;
     display: flex;
+    height: 590px;
 }
 .item{
     display:flex;
     flex-direction: row;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.mainContainer{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+.singleElement{
+    margin-top: "30px";
+    padding-top: "20px";
 }

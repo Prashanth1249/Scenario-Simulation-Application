@@ -11,8 +11,8 @@ import './App.css'; // Import the App CSS
 const App = () => {
   return (
     <Router>
-      <div className="app">
-        <Sidebar />
+      <div className="app" style={{backgroundColor:"black"}}>
+         <Sidebar />
         <div className="content">
           <Routes>
             <Route path="/" element={<Simulation />} />

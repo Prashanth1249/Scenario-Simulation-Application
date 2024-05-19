@@ -6,7 +6,12 @@
 }
 .buttonContainer{
     display: flex;
-    
+    margin-top: 61px;
+}
+.buttonContainer button{
+    margin-right: 5%;
+    border-radius: 4px;
+    color: white;
 }
 .formContainer{
     display: flex;
@@ -14,8 +19,18 @@
     background-color: #333333;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-top: 54px;
+    height: 145px;
+    padding: 30px;
+    height: 20%;
 }
 .singleElement{
     display: flex;
     flex-direction: column;
 }
+.mainContainer{
+    width: 100%;
+    height: 100%;
+}
+
+  

@@ -2,10 +2,15 @@ import React, { useState, useEffect, useDebugValue } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Simulation.css';
+import eidt from './pencil.png';
+import bin from './bin.png';
+
 const SIMULATION_INTERVAL = 200; // 1 second
 const GRID_SIZE = 50;
-const CONTAINER_WIDTH = 500;
-const CONTAINER_HEIGHT = 500;
+const CONTAINER_WIDTH = window.innerWidth-380;
+const CONTAINER_HEIGHT = window.innerHeight-300;
+
+
 const TIME_DECREAMENT=0.25;
 const Simulation = () => {
   const navigate = useNavigate();
@@ -203,10 +208,7 @@ const Simulation = () => {
         throw new Error('Failed to update scenario');
       }
   
-      // Update the local state
-      console.log("a");
-      console.log(vehicles);
-      console.log("b");
+   
       const updatedLocalVehicles = vehicles.filter(vehicle => vehicle.id !== vehicleId);
       setVehicles(updatedLocalVehicles);
       setOriginalVehicles(updatedLocalVehicles);
@@ -226,10 +228,10 @@ const Simulation = () => {
       <option value="my-scenario">My Scenario</option>
     </select>
     </div>
-      <table>
-        <thead>
+    <table className='tableContainer' style={{ width: CONTAINER_WIDTH }}>
+        <thead className='tableHeader'>
           <tr>
-            <th>Vehicle ID</th>
+            <th className='headerItem'> Vehicle ID</th>
             <th>Vehicle Name</th>
             <th>Position X</th>
             <th>Position Y</th>
@@ -249,26 +251,33 @@ const Simulation = () => {
               <td>{vehicle.speed}</td>
               <td>{vehicle.direction}</td>
               <td>
-                <button onClick={() => handleEdit(vehicle)}>Edit</button>
+              <button onClick={() => handleEdit(vehicle)} style={{ border: 'none', padding: 0, background: 'none' }}>
+                <img src={eidt} alt='Edit' style={{ height: '20px' }} />
+              </button>
               </td>
               <td>
-                <button onClick={() => handleDelete(vehicle.id)}>Delete</button>
+                <button onClick={() => handleDelete(vehicle.id)} style={{ border: 'none', padding: 0, background: 'none' }}>
+                <img src={bin} alt='Delete' style={{ height: '20px' }} />
+                  </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <div style={{ marginBottom: '10px' }}>
-        <button onClick={startSimulation} disabled={isSimulationRunning}>
+      <div className='simulationButtons' style={{width:CONTAINER_WIDTH}}>
+        <button onClick={startSimulation} disabled={isSimulationRunning}  
+        style={{ backgroundColor: isSimulationRunning ? '#CCCCCC' : '#5CB85C', color: isSimulationRunning ? '#999999' : 'white' }}>
           Start Simulation
         </button>
-        <button onClick={stopSimulation} disabled={!isSimulationRunning}>
+        <button onClick={stopSimulation} 
+        style={{ backgroundColor: !isSimulationRunning ? '#CCCCCC' : '#4A9ABA', color: !isSimulationRunning ? '#999999' : 'white',marginRight:"0px" }} >
           Stop Simulation
         </button>
       </div>
 
-      <div style={{ position: 'relative', width: CONTAINER_WIDTH, height: CONTAINER_HEIGHT, border: '1px solid black' }}>
+
+      <div className='additionalContent' style={{ position: 'relative', width: CONTAINER_WIDTH, height: CONTAINER_HEIGHT, border: '1px solid black' }}>
         {renderGrid()}
         {vehicles.map(vehicle => (
           <div
@@ -282,10 +291,10 @@ const Simulation = () => {
           >
             <div
               style={{
-                width: '4mm',
-                height: '4mm',
+                width: '7mm',
+                height: '7mm',
                 borderRadius: '50%',
-                fontSize: '10px',
+                fontSize: '14px',
                 background: vehicle.color,
                 border: '0.5mm solid black',
                 display: 'flex',

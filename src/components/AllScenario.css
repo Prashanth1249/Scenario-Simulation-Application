@@ -1,0 +1,149 @@
+.tableHeader{
+    background-color: #333333;
+    border: 1px solid black;
+  }
+  .headerItem {
+  padding: 3px;
+   padding-left: 10px;
+   padding-right: 10px;
+}
+.contentItem{
+    padding: 3px;
+     padding-left: 10px;
+     padding-right: 10px;
+}
+.tableContainer {
+  width: 100%;
+}
+
+.tableHeader th {
+  color: #333333; /* Header text color */
+  background-color: #333333; /* Header background color */
+  text-align: center; /* Center align header text */
+  padding: 10px; /* Add padding for better appearance */
+  color: #AEAEAE;
+}
+
+.tableContainer td {
+  color: #686868; /* Table data text color */
+  background-color: #D9D9D9; /* Table data background color */
+  text-align: center; /* Center align table data text */
+  padding: 10px; /* Add padding for better appearance */
+}
+
+/* Alternate row color */
+.tableContainer tbody tr:nth-child(even) {
+  background-color: #333333;
+}
+
+/* Hover effect */
+.tableContainer tbody tr:hover {
+  background-color: #135113;
+}
+/* General table styling */
+.tableContainer {
+    width: 100%;
+    position: relative;
+    top: 43px;
+  }
+  
+  .tableHeader {
+    background-color: #333333;
+    border: 1px solid black;
+  }
+  
+  .tableHeader th {
+    color: #AEAEAE; /* Header text color */
+    background-color: #333333; /* Header background color */
+    text-align: center; /* Center align header text */
+    padding: 10px; /* Add padding for better appearance */
+  }
+  
+  .tableContainer td {
+    color: #686868; /* Table data text color */
+    background-color: #D9D9D9; /* Table data background color */
+    text-align: center; /* Center align table data text */
+    padding: 10px; /* Add padding for better appearance */
+  }
+  
+  /* Alternate row color */
+  .tableContainer tbody tr:nth-child(even) {
+    background-color: #333333;
+  }
+  
+  /* Hover effect */
+  .tableContainer tbody tr:hover {
+    background-color: #135113;
+  }
+  
+  /* Button styling */
+  button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+.columnClass{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}  
+
+
+table {
+    width: 100%; /* Ensuring full width of the container */
+    border-collapse: collapse; /* Collapsing borders for a cleaner look */
+  }
+  
+  th, td {
+    padding: 12px; /* Adding padding for better readability */
+    text-align: left; /* Aligning text to the left */
+    border: 1px solid #ddd; /* Adding a light border for separation */
+  }
+  
+  .tableHeader th {
+    background-color: #333333; /* Heading background color */
+    color: white; /* Heading font color */
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternating row background color */
+  }
+  
+  tbody tr:nth-child(odd) {
+    background-color: white; /* Alternating row background color */
+  }
+  
+  td, .columnClass {
+    background-color: white; /* Default cell background color */
+    color: black; /* Default cell font color */
+  }
+  
+  button {
+    background-color: #333333; /* Button background color */
+    color: white; /* Button font color */
+    border: none; /* Removing default border */
+    padding: 8px 16px; /* Adding padding for better button appearance */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+  
+  button:hover {
+    background-color: #555555; /* Button hover background color */
+  }
+.temp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonClass1{
+    border-radius: 4px;
+    margin-left: 20px;
+}

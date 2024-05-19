@@ -1,0 +1,11 @@
+.app {
+  display: flex;
+  background-color: black;
+}
+
+.content {
+  margin-left: 200px; /* Same width as the sidebar */
+  padding: 30px;
+  flex-grow: 1;
+  padding-top: 6px;
+}

@@ -1,0 +1,21 @@
+.addButton{
+    background-color: rgb(74, 168, 55);
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+.buttonContainer{
+    display: flex;
+    
+}
+.formContainer{
+    display: flex;
+    color: white;
+    background-color: #333333;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.singleElement{
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,8 @@
+.formContainer{
+    color: white;
+    display: flex;
+}
+.item{
+    display:flex;
+    flex-direction: row;
+}

@@ -1,10 +1,14 @@
-
 # Scenario-Simulation-Application
 
 This project is a React.js application that allows users to create, display, update, and delete scenarios and vehicles. Users can simulate scenarios with moving vehicles based on specified parameters.
 
-## Project Live here : https://scenariosimulation.netlify.app/
-## Sample Youtube Video : https://youtu.be/gUiUgB_fJPE?si=25h43TCEgCnmqdBg
+## Project Live here
+
+[Live Demo](https://scenariosimulation.netlify.app/)
+
+## Sample Youtube Video
+
+[Watch on YouTube](https://youtu.be/gUiUgB_fJPE?si=25h43TCEgCnmqdBg)
 
 ## Features
 
@@ -95,5 +99,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-This README now correctly uses `#` and `##` for the headings.# temp2
-# temp2
+This README now correctly uses `#` and `##` for the headings.
